@@ -2,7 +2,9 @@ function setDeleteResult() {
     let text = document.getElementById("text-input").value;
     let matches = text.match(/[^!.?,;: ]+/gi);
 
-    if (!matches) return;
+    if (!matches) {
+        document.getElementById("delete-result").value = text
+    };
 
     let firstWord = matches[0];
     let found = false;
