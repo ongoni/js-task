@@ -27,10 +27,13 @@ function getMeridiumHours(hours, zero) {
     if (hours >= 0 && hours <= 9) {
         return zero ? "0" + hours : hours
     }
-    if (hours >= 10 && hours < 12 || hours >= 22 && hours <= 24 || hours === 12) {
+    if (hours >= 10 && hours <= 12) {
         return hours
     }
     if (hours >= 13 && hours <= 21) {
         return zero ? "0" + hours % 12 : hours % 12
+    }
+    if (hours >= 22 && hours < 24) {
+        return hours % 12 !== 0 ? hours % 12 : "00"
     }
 }
